@@ -3,7 +3,7 @@
 "RODOLPHO BENINI FILGUEIRAS"
 "PROJETO 2 -> FORCA"
 
-import random
+from random import *
 
 lista = open("entrada1.txt" , encoding="utf-8")
 
@@ -28,7 +28,7 @@ forca.penup()
 forca.setpos(-230,-30)      #linhas 10 a 27 construcao da forca
 forca.pendown()
 forca.pensize(9)
-forca.speed(3)
+
 
 forca.left(0)
 forca.fd(25)
@@ -58,7 +58,7 @@ def corpo ():
     forca.pendown()
     forca.left(0) 
     forca.fd(50)
-
+corpo()
 
 def braco_1():
     
@@ -99,9 +99,26 @@ def perna_2():
 
 tracos= turtle.Turtle()
 tracos.pensize(9)
-tracos.fd(100)
 
 
+
+def traco (palavra):
+    for c in palavra:
+        if c == " ":
+            tracos.penup()
+            tracos.fd(30)
+            tracos.pendown()
+            
+        if c != " ":
+            tracos.pendown
+            tracos.fd(20)
+            tracos.penup()
+            tracos.fd(10)
+            tracos.pendown()
+            
+jogao = choice(limpa)
+
+traco(jogao)
 
 
 variavel_texto = window.textinput("FORCA 13", "Escolha uma letra :")
