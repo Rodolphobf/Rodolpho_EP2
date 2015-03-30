@@ -48,7 +48,7 @@ forca.right(90)
 def cabeca():
     
     forca.circle(15)       #cabeca
-cabeca()
+
 
 def corpo ():
     
@@ -58,7 +58,7 @@ def corpo ():
     forca.pendown()
     forca.left(0) 
     forca.fd(50)
-corpo()
+
 
 def braco_1():
     
@@ -99,7 +99,10 @@ def perna_2():
 
 tracos= turtle.Turtle()
 tracos.pensize(9)
-
+tracos.penup()
+tracos.setpos(-200,-100)
+tracos.pendown()
+tracos.setpos(-200,-100) 
 
 
 def traco (palavra):
@@ -110,7 +113,7 @@ def traco (palavra):
             tracos.pendown()
             
         if c != " ":
-            tracos.pendown
+            tracos.pendown()
             tracos.fd(20)
             tracos.penup()
             tracos.fd(10)
@@ -123,16 +126,42 @@ jogao = choice(limpa)
 traco(jogao)
 
 
-variavel_texto = window.textinput("FORCA 13", "Escolha uma letra :")
+a = window.textinput("FORCA 13", "Escolha uma letra :")
 
-R = 0
-          
-for r in palavra:
-    
-    R = window.input(" escolha uma letra ")
-    
-    if R in palavra:
+acertos = 0
+erros = 0
 
-              print(R)
-              
+letra = turtle.Turtle()
+#letra = pensize(9)
+
+
+letra.write(a , font = 'Arial', )
+
+while erros < 6:
+    
+    a = window.textinput("FORCA 13", "Escolha uma letra :")
+
+    acertos = 0
+    erros = 0
+
+    letra = turtle.Turtle()
+    #letra = pensize(9)
+    
+    for r in range(0,len(palavra)):
+     
+        if a == palavra(r):
+        
+            letra.penup()
+            letra.setx(-200 + r*30)
+            letra.sety(-105)
+            letra.pendown()
+            letra.write(a , font = 'Arial')
+            
+            acerto += 1
+            
+        if a != palavra(r):
+            
+            cabeca()
+            erro += 1
+        
 window.mainloop() # fecha a janela
