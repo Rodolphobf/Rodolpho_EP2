@@ -3,18 +3,19 @@
 "RODOLPHO BENINI FILGUEIRAS"
 "PROJETO 2 -> FORCA"
 
-from random import *
+import random
 
-lista = open("entrada1.txt" , encoding="utf-8")
+lista = open("entrada1.txt" , encoding="utf-8").read().splitlines()
 
-conteudo = lista.readlines()
+#conteudo = lista.readlines()
+escolha = random.choice(lista).strip().lower()
 
 limpa = []
 
-for palavra in conteudo:
-    p = palavra.strip()
-    if p != "":
-        limpa.append(p)
+#for palavra in conteudo:
+   # p = palavra.strip()
+    #if p != "":
+     #   limpa.append(p)
     
 
 import turtle
@@ -24,10 +25,11 @@ window.bgcolor('white')
 forca = turtle.Turtle() #muda o nome do turtle
 window.title('JOGO DA FORCA')
 forca.speed(30)
+forca.hideturtle()
 forca.penup()
 forca.setpos(-230,-30)      #linhas 10 a 27 construcao da forca
 forca.pendown()
-forca.pensize(9)
+#forca.pensize(9)
 
 
 forca.left(0)
@@ -98,7 +100,7 @@ def perna_2():
     forca.back(40)
 
 tracos= turtle.Turtle()
-tracos.pensize(9)
+#tracos.pensize(9)
 tracos.penup()
 tracos.setpos(-200,-100)
 tracos.pendown()
@@ -121,47 +123,67 @@ def traco (palavra):
   
 
              
-jogao = choice(limpa)
+#jogao = choice(limpa)
+jogao = list(escolha)
 
-traco(jogao)
+
+traco(escolha)
 
 
-a = window.textinput("FORCA 13", "Escolha uma letra :")
+#a = window.textinput("FORCA 13", "Escolha uma letra :")
 
-acertos = 0
-erros = 0
+acerto = 0
+erro = 0
 
 letra = turtle.Turtle()
 #letra = pensize(9)
 
 
-letra.write(a , font = 'Arial', )
-
-while erros < 6:
+while erro < 6:
     
     a = window.textinput("FORCA 13", "Escolha uma letra :")
 
-    acertos = 0
-    erros = 0
+   # acertos = 0
+   #erros = 0
 
     letra = turtle.Turtle()
     #letra = pensize(9)
     
-    for r in range(0,len(palavra)):
-     
-        if a == palavra(r):
+    while acerto == len(escolha) :
         
-            letra.penup()
-            letra.setx(-200 + r*30)
-            letra.sety(-105)
-            letra.pendown()
-            letra.write(a , font = 'Arial')
+        for r in range(0,len(escolha)):
+     
+            if a == jogao[r]:
+        
+                letra.penup()
+                letra.setx(-200 + r*30)
+                letra.sety(-90)
+                letra.pendown()
+                letra.write(a ,move=False, align="left", font=("Arial", 20, "normal"))
+
             
-            acerto += 1
+                acerto += 1
             
-        if a != palavra(r):
+            for i in escolha:
+                if a != i:
+                    erro += 1
             
-            cabeca()
-            erro += 1
+                if erro == 1 :
+                    cabeca()
+            
+                if erro == 2:
+                    corpo()
+
+                if erro == 3:
+                    braco_1()
+
+                if erro == 4:
+                    braco_2()
+                    
+                if erro == 5:
+                    perna_1()
+
+                if erro == 6:
+                    perna_2()
         
 window.mainloop() # fecha a janela
