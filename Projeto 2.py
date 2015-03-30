@@ -115,11 +115,9 @@ def traco (palavra):
             tracos.penup()
             tracos.fd(10)
             tracos.pendown()
-            
-for r in palavra:
-    R = str(imput(" escolha uma letra "))
-          if R 'contido'
-              R = 
+  
+
+             
 jogao = choice(limpa)
 
 traco(jogao)
@@ -127,4 +125,13 @@ traco(jogao)
 
 variavel_texto = window.textinput("FORCA 13", "Escolha uma letra :")
 
+R = 0
+          
+for r in palavra:
+    R = input(" escolha uma letra ")
+    
+    if R in palavra:
+
+              print(R)
+              
 window.mainloop() # fecha a janela
