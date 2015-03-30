@@ -139,51 +139,50 @@ letra = turtle.Turtle()
 #letra = pensize(9)
 
 
-while erro < 6:
+while erro < 6 and acerto < len(escolha):
     
     a = window.textinput("FORCA 13", "Escolha uma letra :")
-
+    acerto2 = 0
    # acertos = 0
    #erros = 0
 
     letra = turtle.Turtle()
     #letra = pensize(9)
     
-    while acerto == len(escolha) :
+   # while acerto == len(escolha) :
         
-        for r in range(0,len(escolha)):
+    for r in range(0,len(escolha)):
      
-            if a == jogao[r]:
+        if a == jogao[r]:
         
-                letra.penup()
-                letra.setx(-200 + r*30)
-                letra.sety(-90)
-                letra.pendown()
-                letra.write(a ,move=False, align="left", font=("Arial", 20, "normal"))
-
+            letra.penup()
+            letra.setx(-200 + r*30)
+            letra.sety(-90)
+            letra.pendown()
+            letra.write(a ,move=False, align="left", font=("Arial", 20, "normal"))
+            acerto += 1
+            acerto2 += 1
+           #else :
             
-                acerto += 1
+              #  for i in escolha:
+                    #if a != i:
+    if acerto2 == 0:
+        erro += 1
             
-            for i in escolha:
-                if a != i:
-                    erro += 1
-            
-                if erro == 1 :
-                    cabeca()
-            
-                if erro == 2:
-                    corpo()
-
-                if erro == 3:
-                    braco_1()
-
-                if erro == 4:
-                    braco_2()
-                    
-                if erro == 5:
-                    perna_1()
-
-                if erro == 6:
-                    perna_2()
-        
+        if erro == 1 :
+            cabeca()
+        if erro == 2:
+            corpo()
+        if erro == 3:
+            braco_1()
+        if erro == 4:
+            braco_2()
+        if erro == 5:
+            perna_1()
+        if erro == 6:
+            perna_2()
+if acerto == len(escolha):
+    #codigo ganhar
+#if erro == 6 :
+    #codigo perder
 window.mainloop() # fecha a janela
