@@ -23,7 +23,7 @@ window = turtle.Screen()    #abre a janela
 window.bgcolor('white')
 forca = turtle.Turtle() #muda o nome do turtle
 window.title('JOGO DA FORCA')
-
+forca.speed(30)
 forca.penup()
 forca.setpos(-230,-30)      #linhas 10 a 27 construcao da forca
 forca.pendown()
@@ -128,7 +128,8 @@ variavel_texto = window.textinput("FORCA 13", "Escolha uma letra :")
 R = 0
           
 for r in palavra:
-    R = input(" escolha uma letra ")
+    
+    R = window.input(" escolha uma letra ")
     
     if R in palavra:
 
