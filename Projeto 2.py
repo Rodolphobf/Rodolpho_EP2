@@ -116,6 +116,10 @@ def traco (palavra):
             tracos.fd(10)
             tracos.pendown()
             
+for r in palavra:
+    R = str(imput(" escolha uma letra "))
+          if R 'contido'
+              R = 
 jogao = choice(limpa)
 
 traco(jogao)
