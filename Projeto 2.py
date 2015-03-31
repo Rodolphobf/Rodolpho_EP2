@@ -29,14 +29,15 @@ forca.hideturtle()
 forca.penup()
 forca.setpos(-230,-30)      #linhas 10 a 27 construcao da forca
 forca.pendown()
-#forca.pensize(9)
-
+forca.pensize(9)
+forca.color('orange')
 
 forca.left(0)
 forca.fd(25)
 forca.right(180)
 forca.fd(50)
 forca.left(180)
+
 forca.fd(25)
 forca.left(90)
 forca.fd(200)
@@ -44,7 +45,7 @@ forca.right(90)
 forca.fd(100)
 forca.left(270)
 forca.fd(25)
-forca.color('black')
+forca.color('orange')
 forca.right(90)
 
 def cabeca():
@@ -64,43 +65,46 @@ def corpo ():
 
 def braco_1():
     
-    forca.left(115)
-    forca.fd(30)
-    forca.penup()    #Braco 1   
+    forca.penup()
     forca.left(180)
-    forca.fd(40)
+    forca.fd(30)
     forca.pendown()
-    forca.backward(30)
+    forca.left(45)
+    forca.fd(40)
 
 
 def braco_2():
     
-    forca.left(130)     # braco 2
-    forca.fd(30)
-    forca.backward(30)
+    forca.fd(-40)
+    forca.left(270)
+    forca.fd(40)
+    
 
 
 def perna_1():
     
-    forca.left(295)
-    forca.penup()       #perna 1
-    forca.left(0)
-    forca.fd(40)
+    forca.backward(40)
+    forca.left(180)
+    forca.penup()
+    forca.left(45)
+    forca.fd(30)
     forca.pendown()
-    forca.left(330)
-    forca.fd(40)
-
+    forca.left(45)
+    forca.fd(50)
+    
 
 
 def perna_2():
     
-    forca.backward(40) #perna 2
-    forca.left(60)
-    forca.fd(40)
-    forca.back(40)
+    forca.backward(50) 
+    forca.left(270)
+    forca.fd(50)
+
+
 
 tracos= turtle.Turtle()
-#tracos.pensize(9)
+tracos.color('orange')
+tracos.pensize(9)
 tracos.penup()
 tracos.setpos(-200,-100)
 tracos.pendown()
@@ -136,20 +140,18 @@ acerto = 0
 erro = 0
 
 letra = turtle.Turtle()
-#letra = pensize(9)
 
+#letra.color('')
 
-while erro < 6 and acerto < len(escolha):
+while erro <= 6 and acerto < len(escolha):
     
     a = window.textinput("FORCA 13", "Escolha uma letra :")
     acerto2 = 0
-   # acertos = 0
-   #erros = 0
 
     letra = turtle.Turtle()
     #letra = pensize(9)
     
-   # while acerto == len(escolha) :
+
         
     for r in range(0,len(escolha)):
      
@@ -162,10 +164,7 @@ while erro < 6 and acerto < len(escolha):
             letra.write(a ,move=False, align="left", font=("Arial", 20, "normal"))
             acerto += 1
             acerto2 += 1
-           #else :
-            
-              #  for i in escolha:
-                    #if a != i:
+           
     if acerto2 == 0:
         erro += 1
             
@@ -181,8 +180,15 @@ while erro < 6 and acerto < len(escolha):
             perna_1()
         if erro == 6:
             perna_2()
-if acerto == len(escolha):
+            
+            
+            
+#if acerto == len(escolha):
     #codigo ganhar
-#if erro == 6 :
+#if erro 6 :
     #codigo perder
-window.mainloop() # fecha a janela
+            
+            
+            
+
+window.mainloop()
