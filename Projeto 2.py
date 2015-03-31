@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 "RODOLPHO BENINI FILGUEIRAS"
@@ -12,11 +13,6 @@ escolha = random.choice(lista).strip().lower()
 
 limpa = []
 
-#for palavra in conteudo:
-   # p = palavra.strip()
-    #if p != "":
-     #   limpa.append(p)
-    
 
 import turtle
 
@@ -104,6 +100,7 @@ def perna_2():
 
 tracos= turtle.Turtle()
 tracos.color('orange')
+tracos.hideturtle()
 tracos.pensize(9)
 tracos.penup()
 tracos.setpos(-200,-100)
@@ -129,7 +126,11 @@ def traco (palavra):
              
 #jogao = choice(limpa)
 jogao = list(escolha)
-
+escolha =escolha.replace("â","a")
+escolha=escolha.replace("ã","a")
+escolha=escolha.replace("ó","o")
+escolha=escolha.replace("ô","o")
+escolha=escolha.replace("í","i")
 
 traco(escolha)
 
@@ -140,6 +141,7 @@ acerto = 0
 erro = 0
 
 letra = turtle.Turtle()
+
 
 #letra.color('')
 
@@ -180,14 +182,25 @@ while erro <= 6 and acerto < len(escolha):
             perna_1()
         if erro == 6:
             perna_2()
-            
+            forca.penup()
+            forca.goto(80,100)
+            forca.pendown()
+            forca.color('black')
+            forca.write('PERDEU PLAYBOY' ,font=( "Arial" , 20, 'normal'))
+    
             
             
 #if acerto == len(escolha):
     #codigo ganhar
-#if erro 6 :
-    #codigo perder
-            
+    pass
+
+if erro == 6 :
+    
+    erro.turtle.Turtle()
+    erro.setpos(-650,150)
+    erro.color('black')
+    erro.write('PERDEU PLAYBOY' ,font=( "Arial" , 20, 'normal'))
+    
             
             
 
